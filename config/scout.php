@@ -243,7 +243,7 @@ return [
                     'default_sorting_field' => 'created_at', // 이 부분 추가
                 ],
                 'search-parameters' => [
-                    'query_by' => 'title,content,excerpt', // 검색할 필드 추가
+                    'query_by' => 'title', // 검색할 필드 추가
                 ],
             ],
         ],
