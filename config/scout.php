@@ -181,28 +181,71 @@ return [
         ],
         // 'max_total_results' => env('TYPESENSE_MAX_TOTAL_RESULTS', 1000),
         'model-settings' => [
-            // User::class => [
-            //     'collection-schema' => [
-            //         'fields' => [
-            //             [
-            //                 'name' => 'id',
-            //                 'type' => 'string',
-            //             ],
-            //             [
-            //                 'name' => 'name',
-            //                 'type' => 'string',
-            //             ],
-            //             [
-            //                 'name' => 'created_at',
-            //                 'type' => 'int64',
-            //             ],
-            //         ],
-            //         'default_sorting_field' => 'created_at',
-            //     ],
-            //     'search-parameters' => [
-            //         'query_by' => 'name'
-            //     ],
-            // ],
+            \App\Models\User::class => [
+                'collection-schema' => [
+                    'fields'                => [
+                        [
+                            'name' => 'id',
+                            'type' => 'string',
+                        ],
+                        [
+                            'name' => 'name',
+                            'type' => 'string',
+                        ],
+                        [
+                            'name' => 'created_at',
+                            'type' => 'int64',
+                        ],
+                    ],
+                    'default_sorting_field' => 'created_at',
+                ],
+                'search-parameters' => [
+                    'query_by' => 'name',
+                ],
+            ],
+
+            \App\Models\Post::class => [
+                'collection-schema' => [
+                    'fields'                => [
+                        [
+                            'name' => 'id',
+                            'type' => 'string',
+                        ],
+                        [
+                            'name' => 'title',
+                            'type' => 'string',
+                        ],
+                        [
+                            'name' => 'content',
+                            'type' => 'string',
+                        ],
+                        [
+                            'name' => 'excerpt',
+                            'type' => 'string',
+                        ],
+                        [
+                            'name' => 'user_id',
+                            'type' => 'string',
+                        ],
+                        [
+                            'name' => 'is_published',
+                            'type' => 'bool',
+                        ],
+                        [
+                            'name' => 'created_at',
+                            'type' => 'int64',
+                        ],
+                        [
+                            'name' => 'updated_at',
+                            'type' => 'int64',
+                        ],
+                    ],
+                    'default_sorting_field' => 'created_at', // 이 부분 추가
+                ],
+                'search-parameters' => [
+                    'query_by' => 'title,content,excerpt', // 검색할 필드 추가
+                ],
+            ],
         ],
     ],
 
